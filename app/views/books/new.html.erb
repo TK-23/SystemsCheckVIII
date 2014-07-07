@@ -1,14 +1,10 @@
-<%= form_for @book do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %>
-  <%= f.label :author %>:
-  <%= f.text_field :author, label: "Author" %>
-  <%= f.label :year %>:
-  <%= f.number_field :year, label: "Year" %><br>
-  <%= f.label :category %>:
-  <%= f.text_field :category, label: "Category" %>
-  <%= f.label :description %>:
-  <%= f.text_area :description, label: "Description" %><br>
+<%= simple_form_for @book do |f| %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :year %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+
   <%= f.submit "Submit" %>
 <% end %>
 

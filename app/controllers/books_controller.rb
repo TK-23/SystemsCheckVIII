@@ -8,7 +8,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-
   def new
     @book = Book.new
   end
@@ -33,15 +32,15 @@ class BooksController < ApplicationController
     else
       author = author_query.first
     end
-    new_book ["author"] = author
+    new_book["author"] = author
 
-    book = Book.new(new_book)
+    @book = Book.new(new_book)
 
-    if book.save
+    if @book.save
       flash[:notice] = "Save Successful"
       redirect_to books_path
     else
-      flash[:notice] = "Save Failed"
+      flash.now[:notice] = "Save Failed"
       render :new
     end
   end

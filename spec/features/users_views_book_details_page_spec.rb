@@ -13,7 +13,7 @@ feature "user views book listing", %q{
 
   scenario "navigates to books listing page and sees all books" do
     all_books = FactoryGirl.create_list(:book_with_reviews, 10)
-    (1..10).each do |i|
+    (0..9).each do |i|
       visit books_path
       click_on all_books[i].title
 

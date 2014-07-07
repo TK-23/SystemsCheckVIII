@@ -11,7 +11,7 @@ FactoryGirl.define do
       ignore { reviews_count 5 }
 
       after(:create) do |book, evaluator|
-        photos = create_list(:review, evaluator.reviews_count , book: book )
+        create_list(:review, evaluator.reviews_count , book: book )
       end
     end
   end

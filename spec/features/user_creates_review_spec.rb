@@ -24,7 +24,7 @@ feature "user creates new book review", %q{
     expect(page).to have_content "5"
   end
 
-  scenario "user creates book with missing information" do
+  scenario "user creates review with missing information" do
     all_books = FactoryGirl.create_list(:book, 10)
     visit books_path
 
@@ -32,12 +32,10 @@ feature "user creates new book review", %q{
     fill_in "Body", with: "Great Book"
     click_on "Submit"
 
-    expect(page).to have_content "Save Failed"
-    expect(page).to have_content "can't be blank"
-    expect(page).to have_content "Great Book"
+    expect(page).to have_content "Review Save Failed"
   end
 
-  scenario "user creates book with missing information" do
+  scenario "user creates review with missing information" do
     all_books = FactoryGirl.create_list(:book, 10)
     visit books_path
 
@@ -45,9 +43,7 @@ feature "user creates new book review", %q{
     fill_in "Rating", with: "5"
     click_on "Submit"
 
-    expect(page).to have_content "Save Failed"
-    expect(page).to have_content "can't be blank"
-    expect(page).to have_content "5"
+    expect(page).to have_content "Review Save Failed"
   end
 
 end

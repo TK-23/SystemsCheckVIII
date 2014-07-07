@@ -3,9 +3,19 @@
 <p><b><%= @book.category.name %></b></p><br>
 <p><%= @book.description %></p><br>
 
+
+<ul>
 <%= @book.reviews.each do |review| %>
-<div class="review_div">
+<li><div class="review_div">
   <b><%= review.rating %></b><br>
   <%= review.body %>
-</div>
+</div><li>
 <% end %>
+
+<li><%= simple_form_for [@book, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :body %>
+      <%= f.submit "Submit" %>
+    <% end %>
+</li>
+</ul>

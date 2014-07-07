@@ -6,6 +6,7 @@ class BooksController < ApplicationController
 
  def show
     @book = Book.find(params[:id])
+    @review = Review.new()
   end
 
   def new
@@ -53,6 +54,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.required(:book).permit( :id, :title, :author, :category, :year, :description )
+    params.required(:book).permit( :title, :author, :category, :year, :description )
   end
 end

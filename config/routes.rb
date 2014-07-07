@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :new, :create]
 
   resources :books do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
 
 

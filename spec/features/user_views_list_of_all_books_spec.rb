@@ -17,7 +17,7 @@ feature "user views book listing", %q{
 
     all_books.each do |book|
       expect(page).to have_content book.title
-      expect(page).to have_content book.author
+      expect(page).to have_content book.author.name
       expect(page).to have_content book.year
     end
   end

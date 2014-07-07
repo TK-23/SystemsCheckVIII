@@ -18,10 +18,10 @@ feature "user views book listing", %q{
       click_on all_books[i].title
 
       expect(page).to have_content all_books[i].title
-      expect(page).to have_content all_books[i].author
+      expect(page).to have_content all_books[i].author.name
       expect(page).to have_content all_books[i].year
       expect(page).to have_content all_books[i].description
-      expect(page).to have_content all_books[i].category
+      expect(page).to have_content all_books[i].category.name
 
       expect( all(".review_div").count ).to  eq(5)
       expect(page).to have_content all_books[i].reviews.first.rating

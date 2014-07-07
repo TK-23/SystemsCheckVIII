@@ -1,0 +1,11 @@
+<h1><%= "#{@book.title} [#{@book.year}]" %></h1><br>
+<h4><%= @book.author.name %></h4><br>
+<p><b><%= @book.category.name %></b></p><br>
+<p><%= @book.description %></p><br>
+
+<%= @book.reviews.each do |review| %>
+<div class="review_div">
+  <b><%= review.rating %></b><br>
+  <%= review.bod y%>
+</div>
+<% end %>

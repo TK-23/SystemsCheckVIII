@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :review do
-    sequence( :rating, 5 ) { |n| rand(n) }
+    rating 5
     body "Body"
     book
   end

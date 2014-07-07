@@ -15,11 +15,16 @@ class BooksController < ApplicationController
 
   def create
 
-    category_query = Category.where( name: book_params["category"] )
-    if category_query.length == 0
-      category = Category.create( name: book_params["category"] )
-    else
-      category = category_query.first
+    new_book = book_params
+
+    if book_params["category"]
+      category_query = Category.where( name: book_params["category"] )
+      if category_query.length == 0
+        category = Category.create( name: book_params["category"] )
+      else
+        category = category_query.first
+      end
+      new_book["category"] = category
     end
 
     author_query = Author.where( name: book_params["author"] )
@@ -28,9 +33,6 @@ class BooksController < ApplicationController
     else
       author = author_query.first
     end
-
-    new_book = book_params
-    new_book ["category"] = category
     new_book ["author"] = author
 
     book = Book.new(new_book)

@@ -20,6 +20,7 @@ class AddTables < ActiveRecord::Migration
     end
 
     create_table :reviews do |t|
+      t.integer :book_id, null: false
       t.integer :rating, null: false
       t.text :body, null: false
       t.timestamps

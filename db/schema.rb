@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140707012811) do
   end
 
   create_table "reviews", force: true do |t|
+    t.integer  "book_id",    null: false
     t.integer  "rating",     null: false
     t.text     "body",       null: false
     t.datetime "created_at"

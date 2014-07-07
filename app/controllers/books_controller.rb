@@ -26,13 +26,18 @@ class BooksController < ApplicationController
       new_book["category"] = category
     end
 
-    author_query = Author.where( name: book_params["author"] )
-    if author_query.length == 0
-      author = Author.create( name: book_params["author"] )
+    if !book_params["author"].empty?
+      author_query = Author.where( name: book_params["author"] )
+      if author_query.length == 0
+        author = Author.create( name: book_params["author"] )
+      else
+        author = author_query.first
+      end
+      new_book["author"] = author
     else
-      author = author_query.first
+      new_book.delete "author"
+      new_book["author_id"] = ""
     end
-    new_book["author"] = author
 
     @book = Book.new(new_book)
 
